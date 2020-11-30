@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { auth } from './firebase'
+import { auth } from './firebase';
+
+
 
 //SCSS
 import './assets/scss/app.scss'

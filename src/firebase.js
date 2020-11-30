@@ -1,5 +1,5 @@
 
-import firebase from "firebase/app";
+import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
 
@@ -28,7 +28,7 @@ import 'firebase/firestore'
 	const likesCollection = db.collection('likes')
 
 	//Export utils ref
-	export {
+export {
 		db,
 		auth,
 		usersCollection,
