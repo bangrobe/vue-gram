@@ -29,10 +29,10 @@ import 'firebase/firestore'
 
 	//Export utils ref
 export {
-		db,
-		auth,
-		usersCollection,
-		postsCollection,
-		commentsCollection,
-		likesCollection
-	}
+	db,
+	auth,
+	usersCollection,
+	postsCollection,
+	commentsCollection,
+	likesCollection
+}

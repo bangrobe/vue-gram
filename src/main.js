@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { auth } from './firebase';
+import { auth } from './firebase'
 
 
 
@@ -15,7 +15,7 @@ Vue.config.productionTip = false
 //This ensures Firebase initializes before loading the app when a user refreshes a page.
 
 let app
-auth.onAuthStateChanged ( user => {
+auth.onAuthStateChanged ( (user) => {
   if (!app) {
     app = new Vue({
       router,
@@ -23,7 +23,8 @@ auth.onAuthStateChanged ( user => {
       render: h => h(App)
     }).$mount('#app')
   }
-  if (user) {
+  //Giu thong tin dang nhap trong local ke ca khi refresh lai trang
+  if(user) {
     store.dispatch('fetchUserProfile', user)
   }
 }) 

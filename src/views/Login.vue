@@ -1,5 +1,6 @@
 <template>
 	<div id="login">
+		<password-reset v-if="showPasswordReset" @close="togglePasswordReset()"></password-reset>
 		<section>
 			<div class="col1">
 				<h1>Vuegram</h1>
@@ -18,7 +19,7 @@
 					</div>
 					<div class="button" @click="login()">Login</div>
 					<div class="extras">
-						<a>Forgot Password</a>
+						<a @click="togglePasswordReset()">Forgot Password</a>
 						<a @click="toggleForm()">Create an account</a>
 					</div>
 				</form>
@@ -39,7 +40,7 @@
 					</div>
 					<div>
 						<label for="password2">Password</label>
-						<input type="password" v-model.trim="signupForm.password" id="password2" placeholder="******" />
+						<input type="password" v-model.trim="signupForm.password" id="password2" placeholder="******" autocomplete="off"/>
 					</div>
 					<button class="button" @click="signup()">Signup</button>
 					<div class="extras">
@@ -52,9 +53,15 @@
 </template>
 
 <script>
+import PasswordReset from '@/components/PasswordReset'
+
 export default {
+	components: {
+		PasswordReset
+	},
 	data() {
 		return {
+			showPasswordReset: false,
 			showLoginForm: true,
 			loginForm: {
 				email: '',
@@ -85,6 +92,9 @@ export default {
 		},
 		toggleForm() {
 			this.showLoginForm = !this.showLoginForm
+		},
+		togglePasswordReset() {
+			this.showPasswordReset = !this.showPasswordReset;
 		}
 	}
 }
